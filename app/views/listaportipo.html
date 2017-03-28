@@ -1,0 +1,36 @@
+<h1>Listado de Pokemones</h1>
+
+<div>Buscar por nombre: <input class="form-control" style="width:200px" ng-model="buscar" type="text"  >
+</div> 
+<div>Buscar por tipo: 
+ <select class="form-control"  style="width:300px"
+           ng-model="tipo"  ng-change="mostrarpokemon(tipo)"
+		   ng-options="item.url.split('/')[6] as item.name for item in tipos">
+           <option value=""> ---Seleccione---</option>
+ </select>
+</div> 
+
+</p>
+
+<table class="table" border="1" >
+	<thead>  
+		<tr>  
+		<td>ID</td>
+		<td>NOMBRE DE POKEMON</td>
+		<td>URL</td>
+		<td>ACCIONES</td>
+		</tr>
+		<tr ng-repeat="poke in pokemones | filter:buscar">
+			<td>{{$index + 1}}</td>
+			<td>{{poke.name}}</td>
+			<td>{{poke.url}}</td>
+			<td><a href="">Ver Detalle</a></td>
+
+		</tr>
+	</thead>  
+	<tbody>
+
+</table>
+
+
+	   
